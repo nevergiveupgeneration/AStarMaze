@@ -24,13 +24,13 @@ ActiveRecord::Schema.define(version: 20170523071235) do
   create_table "points", force: :cascade do |t|
     t.integer  "x"
     t.integer  "y"
-    t.boolean  "busy"
+    t.boolean  "busy",       default: false
     t.boolean  "start"
     t.boolean  "goal"
     t.integer  "game_id"
     t.integer  "cost"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.index ["game_id"], name: "index_points_on_game_id", using: :btree
   end
 

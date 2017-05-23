@@ -3,7 +3,7 @@ class CreatePoints < ActiveRecord::Migration[5.0]
     create_table :points do |t|
       t.integer :x
       t.integer :y
-      t.boolean :busy
+      t.boolean :busy, default: false
       t.boolean :start
       t.boolean :goal
       t.references :game, foreign_key: true
