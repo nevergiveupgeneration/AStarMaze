@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<%= render "form", game: @game %> 
+
+<h1>Games</h1>
+
+<% @games.each do |game| %>
+  <div>
+    <%= link_to game.title, game %>
+  </div>
+<% end %>
