@@ -13,3 +13,24 @@
  *= require_tree .
  *= require_self
  */
+
+.grid {
+  height: 740px;
+  width: 740px;
+
+  div {
+    display: inline-block;
+    margin: 1px;
+  }
+}
+
+.point {
+  height: 64px;
+  width: 64px;
+  position: relative;
+  border: 1px solid black;
+}
+
+.point:hover {
+  border: 2px solid red;
+}

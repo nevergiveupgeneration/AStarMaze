@@ -5,4 +5,12 @@
   <%= @game.title %>
 </p>
 
+<div class="grid">
+  <% 10.times do |n|%>
+      <% 10.times do |k|%>
+        <div class="point #{n}_#{k}"></div>
+      <% end %>
+  <% end %>
+</div>
+
 <%= link_to 'Back', games_path %>
