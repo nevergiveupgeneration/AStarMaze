@@ -15,7 +15,7 @@
 <div class="grid">
   <% 10.times do |n|%>
       <% 10.times do |k|%>
-        <%= point(@game, n,k) %>
+        <%= link_to point(@game, n,k),"#{@game.id}/toggle/#{n}/#{k}", remote: true, method: :post %>
       <% end %>
   <% end %>
 </div>

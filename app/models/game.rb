@@ -1,5 +1,5 @@
 class Game < ApplicationRecord
-  attr_writer :path
+  attr_accessor :path
 
   has_many :points
 
@@ -17,10 +17,6 @@ class Game < ApplicationRecord
         end
       end
     end
-  end
-
-  def path
-    @path ||= find_path
   end
 
   def find_path
@@ -46,13 +42,13 @@ class Game < ApplicationRecord
     end
     return nil unless came_from[goal]
 
-    path = []
+    p = []
     point = came_from[goal]
     begin
-      path.unshift([point.x, point.y])
+      p.unshift([point.x, point.y])
       point = came_from[point]
     end until point == start
-    path
+    path = p
   end
 
   private

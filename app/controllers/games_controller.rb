@@ -7,7 +7,7 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
-    @path = @game.path
+    @path = @game.find_path
   end
 
   def create
@@ -17,6 +17,13 @@ class GamesController < ApplicationController
     else
       redirect_to games_path
     end
+  end
+
+  def toggle
+    @game = Game.find(params[:game_id])
+    @point = @game.points.find_by(x: params[:x], y: params[:y])
+    @point.update_attributes(busy: !@point.busy)
+    @path = @game.find_path
   end
 
   private

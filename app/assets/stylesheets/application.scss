@@ -50,3 +50,9 @@
 .point:hover {
   border: 2px solid red;
 }
+
+@for $n from 1 through 10 {
+  @for $k from 1 through 10 {
+    .p_#{$n}_#{$k} {color: black}
+  }
+}
