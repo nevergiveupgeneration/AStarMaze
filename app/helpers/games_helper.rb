@@ -1,24 +1,21 @@
 module GamesHelper
-  def point(game, x, y)
-    point = game.points.find_by(x: x, y: y)
-    return nil unless point
+  def point(path, point)
     if point.start
-      %{<div class="point start p_#{x}_#{y}"></div>}.html_safe
+      %{<div class="point start p_#{point.x}_#{point.y}"></div>}.html_safe
     elsif point.goal
-      %{<div class="point goal p_#{x}_#{y}"></div>}.html_safe
+      %{<div class="point goal p_#{point.x}_#{point.y}"></div>}.html_safe
     elsif point.busy
-      %{<div class="point busy p_#{x}_#{y}"></div>}.html_safe
-    elsif is_path? point
-      %{<div class="point path p_#{x}_#{y}"></div>}.html_safe
+      image_tag("busy", height: '32', width: '32', class: "p_#{point.x}_#{point.y}" ).html_safe
+    elsif is_path? path, point
+      image_tag("path", height: '32', width: '32', class: "p_#{point.x}_#{point.y}").html_safe
     else
-      %{<div class="point p_#{x}_#{y}"></div>}.html_safe
+      image_tag("point", height: '32', width: '32', class: "p_#{point.x}_#{point.y}").html_safe
     end
   end
 
   private
 
-    def is_path? point
-      path = point.game.path
+    def is_path? path, point
       true if path && path.include?([point.x, point.y])
     end
 end

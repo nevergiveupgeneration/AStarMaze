@@ -14,41 +14,46 @@
  *= require_self
  */
 
-.grid {
-  height: 740px;
-  width: 740px;
+ @font-face {
+   font-family: "Minecraft Title Cyrillic";
+   src: url('fonts/minecraft.ttf');
+ }
 
-  div {
+ body {
+   font-family: Minecraft Title Cyrillic;
+ }
+
+.grid {
+  height: 690px;
+  width: 690px;
+
+  a {
     display: inline-block;
-    margin: 1px;
+    margin-right: -4px;
+    margin-top: -4px;
+    padding: 0px;
+    height: 64px;
+    width: 64px;
   }
 }
 
-.point {
+.point, img {
   height: 64px;
   width: 64px;
   position: relative;
-  border: 1px solid black;
 }
 
 .start {
   background-color: green;
 }
 
-.path {
-  background-color: grey;
-}
-
 .goal {
   background-color: red;
 }
 
-.busy {
-  background-color: black;
-}
-
-.point:hover {
-  border: 2px solid red;
+img:hover {
+   box-sizing: border-box;
+  border: 1px solid black;
 }
 
 @for $n from 1 through 10 {

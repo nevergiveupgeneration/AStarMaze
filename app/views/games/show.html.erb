@@ -5,18 +5,9 @@
   <%= @game.title %>
 </p>
 
-<p>
-  <strong>path:</strong>
-  <%= @path %>
-</p>
-
-
-
 <div class="grid">
-  <% 10.times do |n|%>
-      <% 10.times do |k|%>
-        <%= link_to point(@game, n,k),"#{@game.id}/toggle/#{n}/#{k}", remote: true, method: :post %>
-      <% end %>
+  <% @game.points.order(id: :desc).each do |point| %>
+    <%= link_to point(@path, point),"#{@game.id}/toggle/#{point.x}/#{point.y}", remote: true, method: :post %>
   <% end %>
 </div>
 

@@ -1,12 +1,4 @@
-<% if @point.busy %>
-  $('<%= ".p_#{@point.x}_#{@point.y}"%>').addClass("busy");
-<% else %>
-  $('<%= ".p_#{@point.x}_#{@point.y}"%>').removeClass("busy");
-<% end %>
 
-$(".path").removeClass("path");
-<% if @path %>
-  <% @path.each do |el| %>
-    $('<%= ".p_#{el[0]}_#{el[1]}"%>').addClass("path");
-  <%end%>
-<%end%>
+<% @game.points.order(id: :desc).each do |point| %>
+  $('<%= ".p_#{point.x}_#{point.y}"%>').replaceWith('<%= point(@path, point) %>');
+<% end %>
