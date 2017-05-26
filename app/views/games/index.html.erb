@@ -1,11 +1,13 @@
-<p id="notice"><%= notice %></p>
-
-<%= render "form", game: @game %> 
+<%= render "form", game: @game %>
 
 <h1>Games</h1>
 
 <% @games.each do |game| %>
   <div>
-    <%= link_to game.title, game %>
+    <%= link_to %{
+      <div class="button">
+        <span>#{game.title}</span>
+      </div>
+    }.html_safe , game %>
   </div>
 <% end %>

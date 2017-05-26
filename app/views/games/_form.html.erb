@@ -1,11 +1,11 @@
 <%= form_for(game) do |f| %>
-
-  <div class="field">
-    <%= f.label :title %>
+  <div>
     <%= f.text_field :title %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <button type="submit">
+    <div class="button">
+      <span>Create world</span>
+    </div>
+  </button>
 <% end %>
